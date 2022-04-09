@@ -1,0 +1,8 @@
+*.pyc
+
+.idea
+ckpt
+data
+logs
+pretrained_ckpt
+processed
