@@ -36,7 +36,15 @@ class BertDictionary(Dictionary):
 
         with open(filename, 'r', encoding='utf-8', errors='ignore') as input_file:
             for line in input_file:
-                k, v = line.split(' ')
+                # k, v = line.split(' ')
+                # line_split = line.strip().split(' ')
+                line_split = line.split(' ')
+                if len(line_split) == 2:
+                    k, v = line_split[0], line_split[1]
+                elif len(line_split) == 1:
+                    k = line_split[0]
+                else:
+                    ValueError("here")
                 d.add_symbol(k)
 
         d.unk_word = '[UNK]'
