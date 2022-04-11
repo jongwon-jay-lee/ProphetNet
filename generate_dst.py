@@ -6,7 +6,7 @@ from typing import List, Tuple, Dict
 GREETINGS = ["안녕하세요.", "하이", "무엇을 도와드릴까요?", "안녕!"]
 TURN_SEP = "|"
 ATTR_SEP = "[SEP]"
-# Excerpt from https://www.arxiv-vanity.com/papers/1908.10023/
+# Excerpt from Fig #1 : https://www.arxiv-vanity.com/papers/1908.10023/
 DIALOGUE_ACTS = ["question", "command", "opinion", "statement", "answer", "greeting"]
 
 
