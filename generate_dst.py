@@ -101,7 +101,7 @@ def create_data(json_obj, args):
                 print(f"{turn_idx}-USER\tDIFF: {new_slots}")
             else:
                 ValueError(f"ROLE: {curr_turn['role']} should be in (sys|user)")
-            history.append(curr_turn["text"])
+            history.append(f"{curr_turn['role']}: {curr_turn['text']}")
 
         train_data.append(converted_dialogue)
 
@@ -129,11 +129,11 @@ def convert_src_tgt(json_obj, args):
 
     with open(args.src_path, "w", encoding="utf-8") as f_src:
         for src in src_list:
-            f_src.write(f"{src}\n")
+            f_src.write(f"{src.strip()}\n")
 
     with open(args.tgt_path, "w", encoding='utf-8') as f_tgt:
         for tgt in tgt_list:
-            f_tgt.write(f"{tgt}\n")
+            f_tgt.write(f"{tgt.strip()}\n")
 
     total_len = len(src_list)
     random_indices = list(range(total_len))
@@ -151,20 +151,20 @@ def convert_src_tgt(json_obj, args):
     with open(args.train_src_path, "w", encoding='utf-8') as f_train_src:
         with open(args.train_tgt_path, "w", encoding="utf-8") as f_train_tgt:
             for train_idx in train_indices:
-                f_train_src.write(f"{src_list[train_idx]}\n")
-                f_train_tgt.write(f"{tgt_list[train_idx]}\n")
+                f_train_src.write(f"{src_list[train_idx].strip()}\n")
+                f_train_tgt.write(f"{tgt_list[train_idx].strip()}\n")
 
     with open(args.val_src_path, "w", encoding='utf-8') as f_val_src:
         with open(args.val_tgt_path, "w", encoding="utf-8") as f_val_tgt:
             for val_idx in val_indices:
-                f_val_src.write(f"{src_list[val_idx]}\n")
-                f_val_tgt.write(f"{tgt_list[val_idx]}\n")
+                f_val_src.write(f"{src_list[val_idx].strip()}\n")
+                f_val_tgt.write(f"{tgt_list[val_idx].strip()}\n")
 
     with open(args.test_src_path, "w", encoding='utf-8') as f_test_src:
         with open(args.test_tgt_path, "w", encoding="utf-8") as f_test_tgt:
             for test_idx in test_indices:
-                f_test_src.write(f"{src_list[test_idx]}\n")
-                f_test_tgt.write(f"{tgt_list[test_idx]}\n")
+                f_test_src.write(f"{src_list[test_idx].strip()}\n")
+                f_test_tgt.write(f"{tgt_list[test_idx].strip()}\n")
 
 
 def main():
