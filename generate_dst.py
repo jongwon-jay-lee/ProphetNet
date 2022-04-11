@@ -118,7 +118,10 @@ def convert_src_tgt(json_obj, args):
     for example in json_obj:
         for curr_turn in example:
             src_list.append(
-                f"role: {curr_turn['role']} {ATTR_SEP} history: {curr_turn['history']} {ATTR_SEP} slots: {curr_turn['slots']} {ATTR_SEP}"
+                f"role: {curr_turn['role']} {ATTR_SEP} " +
+                f"da: {curr_turn['da']} {ATTR_SEP} " +
+                f"history: {curr_turn['history']} {ATTR_SEP} " +
+                f"slots: {curr_turn['slots']} {ATTR_SEP} "
             )
             tgt_list.append(curr_turn['utt'])
 
