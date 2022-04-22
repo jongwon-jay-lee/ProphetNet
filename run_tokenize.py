@@ -1,8 +1,8 @@
 from transformers import BertTokenizer
 import sentencepiece as spm
 
-REPL_SEP_LIST = []
-NEW_SEP_LIST = []
+REPL_SEP_LIST = ['▁[', 'S', 'EP', ']']
+NEW_SEP_LIST = ['[SEP]']
 
 
 def find_sub_idx(tgt_list, repl_list, start=0):
