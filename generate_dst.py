@@ -135,6 +135,18 @@ def convert_src_tgt(json_obj, args):
         for tgt in tgt_list:
             f_tgt.write(f"{tgt.strip()}\n")
 
+
+def split_train_val_test(args):
+    src_list = []
+    with open(args.src_path, "r", encoding="utf-8") as f_src:
+        for line in f_src:
+            src_list.append(line.strip())
+
+    tgt_list = []
+    with open(args.tgt_path, "r", encoding="utf-8") as f_tgt:
+        for line in f_tgt:
+            tgt_list.append(line.strip())
+
     total_len = len(src_list)
     random_indices = list(range(total_len))
     random.shuffle(random_indices)
@@ -186,6 +198,7 @@ def main():
     dst_json = read_json(args)
     converted_json = create_data(dst_json, args)
     convert_src_tgt(converted_json, args)
+    split_train_val_test(args)
 
 
 if __name__ == "__main__":
