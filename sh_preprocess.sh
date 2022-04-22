@@ -1,0 +1,12 @@
+python run_fairseq_preprocess.py \
+--user-dir ./ProphetNet_Multi/prophetnet \
+--task translation_prophetnet \
+--source-lang src \
+--target-lang tgt \
+--trainpref ./data/tokenized_train \
+--validpref ./data/tokenized_valid \
+--testpref ./data/tokenized_test \
+--destdir processed \
+--srcdict ./ProphetNet_Multi/prophetnet_multi_dict/dict.txt \
+--tgtdict ./ProphetNet_Multi/prophetnet_multi_dict/dict.txt \
+--workers 20
